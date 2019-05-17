@@ -21,6 +21,10 @@ const todos = [
     }
 ];
 
+// FOREACH, MAP, FILTER
+// Foreach = loop trough
+// Map = return an Array
+// Filter = Filter a Condition (exp: completed === true)
 const todoCompTrue = todos.filter(function(todo) {
     return todo.completed === true;
 }).map(function(todo){
@@ -56,27 +60,44 @@ console.log('================');
 // OBJECT ORIENTED ==================================
 
 // Constructor
-function Person(firstName, lastName, birthDate) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.birthDate = new Date(birthDate);
-    // create method get full name
-    this.getFullName = function() {
+// function Person(firstName, lastName, birthDate) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.birthDate = new Date(birthDate);
+//     // create method get full name
+//     this.getFullName = function() {
+//         return `${this.firstName} ${this.lastName}`;
+//     }
+//     // note : this is not the best way to inisiate method directly inside the constructor, we can use prototype 
+// }
+// // Prototype (Object much more cleaner because we can separate a method and a variables)
+// Person.prototype.getBirthYear = function () {
+//     return this.birthDate.getFullYear();
+// }
+
+// CLASS - Write The OOP Example Above in much Better Way ==== 
+class Person {
+    constructor(firstName, lastName, birthDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = new Date(birthDate);
+    }
+
+    getFullName() {
         return `${this.firstName} ${this.lastName}`;
     }
 
-    // note : this is not the best way to inisiate method directly inside the constructor, we can use prototype 
-}
+    getBirthYear() {
+        return this.birthDate.getFullYear();
+    }
 
-// Prototype (Object much more cleaner because we can separate a method and a variables)
-Person.prototype.getBirthYear = function () {
-    return this.birthDate.getFullYear();
 }
 
 // Inisiation Object
-
 const person1 = new Person('Rifqi', 'Roidi', '5-2-70');
 const person2 = new Person('New', 'People', '5-2-98');
 
 console.log(person1.getBirthYear());
 console.log(person2.getFullName());
+console.log('================');
+
